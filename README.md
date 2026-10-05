@@ -1,8 +1,6 @@
 # 🛰️ Satellite Orbit Analysis & Visualization System
 
-A practical, beginner-to-intermediate level Python project designed for college students and freshers applying for **Space Mission Analysis** or **Aerospace Software** internships.
-
-This project calculates, simulates, and visualizes basic circular satellite orbital parameters around Earth using fundamental Keplerian and Newtonian mechanics.
+An interactive Python simulation and visualization platform for calculating, analyzing, and visualizing Keplerian circular satellite orbital parameters around Earth using classical orbital mechanics.
 
 ---
 
@@ -19,7 +17,6 @@ This project calculates, simulates, and visualizes basic circular satellite orbi
 10. [Example Inputs & Calculated Outputs](#-example-inputs--calculated-outputs)
 11. [Running the Automated Tests](#-running-the-automated-tests)
 12. [Project Limitations & Real-World Perturbations](#-project-limitations--real-world-perturbations)
-13. [Interview Talking Points](#-interview-talking-points)
 
 ---
 
@@ -45,8 +42,8 @@ This project provides an interactive dashboard where a user can enter satellite 
 1. **Calculate Core Orbital Parameters**: Orbital radius, circular speed, orbital period, gravitational acceleration, and daily revolutions.
 2. **Interactive Visualizations**: Render 2D scaled circular orbits with Earth, atmosphere boundary, satellite markers, and velocity vectors.
 3. **Compare Mission Regimes**: Compare Low Earth Orbit (LEO), Medium Earth Orbit (MEO), and Geostationary Orbit (GEO).
-4. **Clean Code & Test Coverage**: Modular, beginner-friendly architecture with zero unnecessary frameworks, comprehensive docstrings, and unit tests.
-5. **Interview-Ready Explainability**: Every line of code, formula, and assumption can be defended in a technical interview.
+4. **Clean Code & Test Coverage**: Modular architecture with comprehensive docstrings and unit tests.
+5. **Automated Verification**: Complete unit test suite ensuring calculation consistency and mathematical adherence to Kepler's Third Law.
 
 ---
 
@@ -238,21 +235,3 @@ This project is intentionally structured as a clear, introductory two-body circu
 3. **Third-Body Gravitation**: In higher orbits (MEO, GEO), the gravitational pull of the Moon and Sun perturbs the orbit over months and years.
 4. **Solar Radiation Pressure (SRP)**: Photons from sunlight transfer momentum to large solar arrays, subtly modifying orbital eccentricity.
 5. **Eccentricity ($e > 0$)**: Real orbits are slightly elliptical (Kepler's First Law), where speed varies between perigee (closest, fastest) and apogee (farthest, slowest).
-
----
-
-## 🎙️ Interview Talking Points
-
-If asked to explain this project during an interview:
-
-1. **"Why did you choose this project?"**
-   > *"I wanted to build a hands-on, end-to-end tool that connects the theoretical astrodynamics I studied (Newton's law of gravitation, Kepler's laws) with interactive software engineering using Python, NumPy, Matplotlib, and Streamlit. It allows mission designers to immediately compare orbital regimes and understand sensitivity trade-offs."*
-
-2. **"Why does a satellite travel slower at higher altitudes?"**
-   > *"Because gravitational force follows the inverse-square law ($F \propto 1/r^2$). At higher altitudes, Earth's pull is weaker, so less centripetal acceleration ($v^2/r$) is needed to balance gravity. Therefore, $v = \sqrt{\mu/r}$ decreases as altitude increases."*
-
-3. **"Why are astronauts weightless if gravity at ISS altitude is 8.66 m/s²?"**
-   > *"Weightlessness in orbit is not the absence of gravity. It is the absence of a normal reaction force. The astronauts and the space station are in continuous free-fall toward Earth together, creating the sensation of zero gravity."*
-
-4. **"Why do we use $\mu$ instead of $G \times M$?"**
-   > *"In orbital mechanics, $\mu = GM$ is determined directly from radar and satellite tracking observations with precision of $10^{-9}$, whereas $G$ alone is difficult to measure on Earth with precision better than $10^{-5}$."*

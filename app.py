@@ -4,7 +4,7 @@ Satellite Orbit Analysis & Visualization System
 An interactive Streamlit application for calculating, analyzing, and visualizing
 Keplerian circular satellite orbits around Earth.
 
-Author: College/Fresher Space Mission Analysis Project
+Author: Mohammad Jeelani
 Technologies: Python, NumPy, Matplotlib, Streamlit, Pandas
 """
 
@@ -276,7 +276,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🛰️ Orbit Overview & Trajectory",
     "⚖️ Orbit Comparison & Trends",
     "📊 Reference Satellites Database",
-    "📚 Formulas & Interview Guide",
+    "📚 Formulas & Physical Principles",
 ])
 
 # ----------------------------------------------------------------------------
@@ -555,10 +555,10 @@ with tab3:
         st.metric("GEO Period", f"{geo_df['Period_min'].iloc[0]:.1f} min", "Exactly 1 sidereal day")
 
 # ----------------------------------------------------------------------------
-# TAB 4: FORMULAS, DERIVATIONS & INTERVIEW GUIDE
+# TAB 4: FORMULAS & PHYSICAL PRINCIPLES
 # ----------------------------------------------------------------------------
 with tab4:
-    st.subheader("📚 Orbital Mechanics Fundamentals & Interview Preparation")
+    st.subheader("📚 Orbital Mechanics Fundamentals & Theoretical Derivations")
     
     st.markdown("### 1. Fundamental Constants Defined")
     constants_df = pd.DataFrame([
@@ -590,7 +590,7 @@ with tab4:
             
             $$\frac{\mu}{r} = v^2 \implies v = \sqrt{\frac{\mu}{r}} = \sqrt{\frac{\mu}{R_E + h}}$$
             
-            **Key Interview Takeaway:** Notice that satellite mass $m$ canceled out! 
+            **Key Physical Insight:** Notice that satellite mass $m$ canceled out! 
             A 100-ton Space Station orbits at the exact same circular speed as a 1-kg CubeSat at the same altitude!
             """
         )
@@ -629,28 +629,28 @@ with tab4:
             """
         )
         
-    st.markdown("### 3. Top Interview Questions & How to Answer Them")
+    st.markdown("### 3. Core Astrodynamics Principles & Physical Insights")
     
     qa_list = [
         (
-            "Q1: Why do satellites at higher altitudes move slower if more rocket fuel is needed to reach them?",
-            "**Answer:** While more energy is required to lift the satellite to higher altitude against Earth's gravitational potential well (increasing potential energy), Earth's gravitational pull decreases with distance ($g \\propto 1/r^2$). Therefore, less centripetal acceleration ($v^2/r$) is required to balance gravity, resulting in a slower orbital velocity ($v \\propto 1/\\sqrt{r}$). The total orbital energy increases (becomes less negative), but kinetic energy decreases while potential energy increases."
+            "Why do satellites at higher altitudes move slower if more rocket fuel is needed to reach them?",
+            "**Explanation:** While more energy is required to lift the satellite to higher altitude against Earth's gravitational potential well (increasing potential energy), Earth's gravitational pull decreases with distance ($g \\propto 1/r^2$). Therefore, less centripetal acceleration ($v^2/r$) is required to balance gravity, resulting in a slower orbital velocity ($v \\propto 1/\\sqrt{r}$). The total orbital energy increases (becomes less negative), but kinetic energy decreases while potential energy increases."
         ),
         (
-            "Q2: If gravity at the ISS (408 km) is still ~89% of Earth's surface gravity, why are astronauts weightless?",
-            "**Answer:** Astronauts are not in 'zero gravity'—they are in continuous free-fall. Both the ISS and the astronauts are accelerating toward Earth at the exact rate given by $g = \\mu/r^2 \\approx 8.65\\text{ m/s}^2$. Because the station and the astronauts are falling together along the curved path of the orbit, there is no normal reaction force between the astronaut and the floor. This absence of normal contact force produces the sensation of weightlessness (microgravity)."
+            "If gravity at the ISS (408 km) is still ~89% of Earth's surface gravity, why are astronauts weightless?",
+            "**Explanation:** Astronauts are not in 'zero gravity'—they are in continuous free-fall. Both the ISS and the astronauts are accelerating toward Earth at the exact rate given by $g = \\mu/r^2 \\approx 8.65\\text{ m/s}^2$. Because the station and the astronauts are falling together along the curved path of the orbit, there is no normal reaction force between the astronaut and the floor. This absence of normal contact force produces the sensation of weightlessness (microgravity)."
         ),
         (
-            "Q3: Why do we use the standard gravitational parameter $\\mu = GM$ instead of calculating $G \\times M$ separately?",
-            "**Answer:** In astrodynamics, the product $\\mu = GM$ can be measured from planetary and satellite tracking observations with astronomical precision (uncertainty $\\sim 10^{-9}$), whereas the universal gravitational constant $G$ alone is notoriously difficult to measure in laboratory experiments (uncertainty $\\sim 10^{-5}$). Using $\\mu$ directly prevents propagating laboratory uncertainty into space mission calculations."
+            "Why do we use the standard gravitational parameter $\\mu = GM$ instead of calculating $G \\times M$ separately?",
+            "**Explanation:** In astrodynamics, the product $\\mu = GM$ can be measured from planetary and satellite tracking observations with astronomical precision (uncertainty $\\sim 10^{-9}$), whereas the universal gravitational constant $G$ alone is notoriously difficult to measure in laboratory experiments (uncertainty $\\sim 10^{-5}$). Using $\\mu$ directly prevents propagating laboratory uncertainty into space mission calculations."
         ),
         (
-            "Q4: What is the difference between a Geosynchronous Orbit (GSO) and a Geostationary Orbit (GEO)?",
-            "**Answer:** Both have an orbital period of exactly one sidereal day (~23 hours 56 minutes) at an altitude of ~35,786 km. However, a **Geostationary Orbit (GEO)** must have an inclination of $0^\\circ$ (equatorial plane) and zero eccentricity (circular). In GEO, the satellite appears completely motionless in the sky to an observer on Earth. A **Geosynchronous Orbit (GSO)** can be inclined; an observer on Earth would see the satellite trace an analemma (figure-8 path) in the sky over 24 hours."
+            "What is the difference between a Geosynchronous Orbit (GSO) and a Geostationary Orbit (GEO)?",
+            "**Explanation:** Both have an orbital period of exactly one sidereal day (~23 hours 56 minutes) at an altitude of ~35,786 km. However, a **Geostationary Orbit (GEO)** must have an inclination of $0^\\circ$ (equatorial plane) and zero eccentricity (circular). In GEO, the satellite appears completely motionless in the sky to an observer on Earth. A **Geosynchronous Orbit (GSO)** can be inclined; an observer on Earth would see the satellite trace an analemma (figure-8 path) in the sky over 24 hours."
         ),
         (
-            "Q5: What are the main limitations and simplifications of this project's model?",
-            "**Answer:** This project uses an unperturbed, spherical, two-body circular model. Real-world space mission analysis must account for: (1) Earth's oblateness ($J_2$ gravitational harmonic causing nodal precession), (2) atmospheric drag in LEO causing orbital decay, (3) solar radiation pressure, (4) third-body gravitational perturbations from the Moon and Sun, and (5) orbital eccentricity ($e > 0$ elliptical orbits)."
+            "What are the main limitations and simplifications of this circular model?",
+            "**Explanation:** This project uses an unperturbed, spherical, two-body circular model. Real-world space mission analysis must account for: (1) Earth's oblateness ($J_2$ gravitational harmonic causing nodal precession), (2) atmospheric drag in LEO causing orbital decay, (3) solar radiation pressure, (4) third-body gravitational perturbations from the Moon and Sun, and (5) orbital eccentricity ($e > 0$ elliptical orbits)."
         ),
     ]
     
@@ -660,4 +660,4 @@ with tab4:
 
 # Footer
 st.markdown("---")
-st.caption("Satellite Orbit Analysis & Visualization System | Built for Space Mission Analysis Internship Portfolio | Python • Streamlit • NumPy • Matplotlib")
+st.caption("Satellite Orbit Analysis & Visualization System | Developed by Mohammad Jeelani | Python • Streamlit • NumPy • Matplotlib")
