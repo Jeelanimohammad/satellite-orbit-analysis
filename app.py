@@ -373,7 +373,7 @@ with tab1:
             sat2_angle_deg=sat2_angle,
             show_geo_ring=show_geo_ring,
         )
-        st.pyplot(fig_orbit, use_container_width=True)
+        st.pyplot(fig_orbit)
         st.caption("Figure: Scaled 2D projection showing Earth, atmosphere boundary, orbital path, and instantaneous velocity direction vector $\\vec{v}$.")
         
     with desc_col:
@@ -386,20 +386,26 @@ with tab1:
         )
         
         # Physical Interpretation Explanations
+        r_km = orbit1_summary['orbital_radius_km']
+        v_kms = orbit1_summary['velocity_km_s']
+        g_ms2 = orbit1_summary['gravitational_accel_m_s2']
+        grav_pct = orbit1_summary['surface_gravity_percent']
+        period_min = orbit1_summary['period_minutes']
+        period_hr = orbit1_summary['period_hours']
         st.markdown(
             f"""
-            - **Why is velocity {orbit1_summary['velocity_km_s']:.2f} km/s?**  
-              At $r = {orbit1_summary['orbital_radius_km']:,.0f}\\text{ km}$, Earth's gravity pulls the satellite inward with $g = {orbit1_summary['gravitational_accel_m_s2']:.2f}\\text{ m/s}^2$. 
-              To avoid crashing into Earth or escaping into deep space, the satellite's forward centripetal acceleration ($v^2/r$) must exactly match this gravitational pull. 
+            - **Why is velocity {v_kms:.2f} km/s?**  
+              At $r = {r_km:,.0f}$ km from Earth's center, Earth's gravity pulls the satellite inward with $g = {g_ms2:.2f}$ m/s².
+              To maintain a circular path without crashing or escaping, the satellite's centripetal acceleration ($v^2/r$) must exactly balance this gravitational pull.
               Hence, $v = \\sqrt{{\\mu / r}}$.
-              
+
             - **Is there 'Zero Gravity' at this altitude?**  
-              **No!** At {alt1_input:,.0f} km altitude, gravity is still **{orbit1_summary['surface_gravity_percent']:.1f}%** of what it is on Earth's surface! 
+              **No!** At {alt1_input:,.0f} km altitude, gravity is still **{grav_pct:.1f}%** of what it is on Earth's surface!
               The sensation of weightlessness ('microgravity') happens because the satellite and everything inside it are in a **continuous state of free-fall around the curved surface of Earth**.
-              
+
             - **Kepler's Third Law in Action:**  
-              The satellite completes one complete orbit every **{orbit1_summary['period_minutes']:.1f} minutes** ({orbit1_summary['period_hours']:.2f} hours). 
-              If we raised the altitude, the period would increase at the rate of $r^{{3/2}}$ while orbital velocity would decrease at $1/\\sqrt{{r}}$.
+              The satellite completes one full orbit every **{period_min:.1f} minutes** ({period_hr:.2f} hours).
+              Raising the altitude increases the period proportional to $r^{{3/2}}$ while orbital velocity decreases proportional to $1/\\sqrt{{r}}$.
             """
         )
 
@@ -480,7 +486,7 @@ with tab2:
             current_alt2_km=alt2_input if enable_comparison else None,
             max_sweep_alt_km=40000.0,
         )
-        st.pyplot(fig_vel, use_container_width=True)
+        st.pyplot(fig_vel)
         st.markdown(
             """
             **Takeaway:** Orbital velocity **decreases** as altitude increases following $v \\propto 1/\\sqrt{r}$. 
@@ -496,7 +502,7 @@ with tab2:
             max_sweep_alt_km=40000.0,
             unit=period_unit,
         )
-        st.pyplot(fig_per, use_container_width=True)
+        st.pyplot(fig_per)
         st.markdown(
             """
             **Takeaway:** Orbital period **increases** steeply with altitude following Kepler's Third Law ($T \\propto r^{3/2}$). 
@@ -511,7 +517,7 @@ with tab2:
         current_alt2_km=alt2_input if enable_comparison else None,
         max_sweep_alt_km=40000.0,
     )
-    st.pyplot(fig_grav, use_container_width=True)
+    st.pyplot(fig_grav)
 
 # ----------------------------------------------------------------------------
 # TAB 3: REFERENCE SATELLITES DATABASE
