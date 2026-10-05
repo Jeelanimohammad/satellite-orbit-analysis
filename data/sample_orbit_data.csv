@@ -1,0 +1,13 @@
+Satellite Name,Regime,Altitude_km,Orbital_Radius_km,Velocity_km_s,Period_min,Orbits_Per_Day,Agency_Country,Primary_Application
+International Space Station (ISS),LEO,408.0,6786.14,7.664,92.68,15.54,NASA/ESA/Roscosmos/JAXA,Crewed Microgravity Research
+Hubble Space Telescope,LEO,540.0,6918.14,7.591,95.40,15.09,NASA / ESA,Deep Space Astronomy
+Starlink v1.5,LEO,550.0,6928.14,7.585,95.61,15.06,SpaceX (USA),Broadband Internet Constellation
+Iridium NEXT,LEO,780.0,7158.14,7.462,100.41,14.34,Iridium Communications (USA),Global Satellite Telephony & M2M
+Sentinel-6 Michael Freilich,LEO,1336.0,7714.14,7.188,112.33,12.82,ESA / NASA / NOAA / EUMETSAT,Ocean Topography & Climate Science
+GLONASS-M Navigation,MEO,19100.0,25478.14,3.955,675.25,2.13,Roscosmos (Russia),Global Positioning & Navigation
+GPS Block III (Navstar),MEO,20200.0,26578.14,3.873,719.27,2.00,US Space Force (USA),Global Positioning System (GPS)
+Galileo FOC,MEO,23222.0,29600.14,3.670,845.24,1.70,European Space Agency (ESA),Civilian Global Navigation
+GOES-16 (East),GEO,35786.0,42164.14,3.075,1436.07,1.00,NOAA / NASA (USA),Geostationary Weather Monitoring
+GSAT-30,GEO,35786.0,42164.14,3.075,1436.07,1.00,ISRO (India),High-Throughput Telecommunications
+Meteosat Third Generation,GEO,35786.0,42164.14,3.075,1436.07,1.00,EUMETSAT (Europe),Meteorology & Lightning Imaging
+Chandra X-Ray Observatory (Mean),HEO,65000.0,71378.14,2.363,3163.78,0.46,NASA (USA),High-Energy Astrophysics
