@@ -245,16 +245,13 @@ st.markdown('<div class="main-title">🛰️ Satellite Orbit Analysis & Visualiz
 st.markdown('<div class="sub-title">A practical astrodynamics tool for Keplerian circular orbit calculation, parameter sensitivity, and mission regime comparison.</div>', unsafe_allow_html=True)
 
 # Assumptions and context banner
-st.markdown(
-    """
-    <div class="info-box">
-    <strong>Theoretical Model Assumptions:</strong> This project evaluates ideal <strong>two-body Keplerian circular orbits</strong> ($e = 0$). 
-    Earth is modeled as a spherically symmetric body with constant standard gravitational parameter 
-    $\\mu = 398,600.4418\\text{ km}^3/\\text{s}^2$ and radius $R_E = 6,378.137\\text{ km}$. Atmospheric drag and perturbation effects ($J_2$, solar radiation pressure) are neglected.
-    </div>
-    """,
-    unsafe_allow_html=True,
+st.info(
+    "📐 **Theoretical Model Assumptions:** This project evaluates ideal **two-body Keplerian circular orbits** (eccentricity e = 0). "
+    "Earth is modeled as a spherically symmetric body with standard gravitational parameter "
+    "μ = 398,600.4418 km³/s² and equatorial radius Rₑ = 6,378.137 km (WGS-84). "
+    "Atmospheric drag and perturbation effects (J₂, solar radiation pressure, third-body gravity) are neglected."
 )
+
 
 # Perform Core Calculations
 try:
